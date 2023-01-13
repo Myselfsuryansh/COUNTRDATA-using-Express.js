@@ -1,0 +1,18 @@
+<!-- <p>place works!</p> -->
+<div class="formgroup box">
+    <form [formGroup]="countryname"><label>COUNTRY:</label>
+        <input type="text" formControlName="COUNTRY" class="form-control" placeholder="Enter your Country name"
+            required="">
+        <span class="text2" *ngIf="countryname.controls.COUNTRY.invalid && countryname.controls.COUNTRY.touched">Please
+            Enter Your Country Name....</span>
+
+
+
+        <div class="submit">
+            <input class="button" type="submit" id="btn" (click)="Clickme()" value="Register">
+
+        </div>
+    </form>
+</div>
+<router-outlet></router-outlet>
+

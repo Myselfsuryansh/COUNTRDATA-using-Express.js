@@ -1,0 +1,50 @@
+<!-- <p>state works!</p> -->
+<!-- <div class="formgroup inputbox text" formControlName="COUNTRY">
+    <form [formGroup]="statename"><label></label>
+    <label for="country"><h1>COUNTRY</h1></label>
+    <select id="country" formControlName="COUNTRY" required="">
+        <option value="" formControlName=></option>
+        <option value="" formControlName=></option>
+    </select>
+    </form>
+</div> -->
+<br><br><br><br>
+
+<div class="BOX">
+    <form [formGroup]="statename" (ngSubmit)="Clickme()">
+        <div class="box1">
+            <label>
+                <h4>COUNTRY:</h4>
+            </label>
+            <select formControlName="COUNTRY" class="COUNTRY">
+                <option class="COUNTRY">
+                    <h1>Select Your Country</h1>
+                </option>
+                <option *ngFor="let item of fetchID">{{item.COUNTRY}}</option>
+                <!-- <select formControlName="STATENAME"><option class="STATE">Select Your Country</option>
+            <option *ngFor="let item of fetchID">{{item.STATE}}</option> -->
+            </select>
+            <span class="text2" *ngIf="statename.controls.COUNTRY.invalid && statename.controls.COUNTRY.touched">Please
+                Enter Your Country Name....</span>
+            <!-- </select> -->
+        </div>
+        <br>
+        <br>
+
+
+        <div class="box">
+            <label>
+                <h4>STATE</h4>
+            </label>
+            <input type="text" formControlName="STATENAME" class="STATE" placeholder="Please enter your state"
+                formControlName="STATENAME" required="">
+            <br><br>
+            <span class="text2"
+                *ngIf="statename.controls.STATENAME.invalid && statename.controls.STATENAME.touched">Please Enter Your
+                STATE Name....</span>
+            <button class="SUBMIT">SUBMIT</button>
+        </div>
+    </form>
+</div>
+<router-outlet></router-outlet>
+

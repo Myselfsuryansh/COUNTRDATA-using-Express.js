@@ -1,0 +1,73 @@
+<!-- <div class="container">
+    <div class="row">
+        <div class="country">
+            <h4>COUNTRY NAMES</h4>
+            <div *ngFor="let list of fetchID ">{{list.COUNTRY}}</div>
+        </div>
+
+        <div class="state">
+            <h4> STATE NAMES</h4>
+            <div *ngFor="let item of fetchID">
+                <div *ngFor="let list of item.STATE">{{list.STATENAME}}</div>
+            </div>
+        </div>
+
+        <div class="district">
+            <h4>DISTRICT NAMES</h4>
+            <div *ngFor="let item of fetchID">
+                <div *ngFor="let list of item.STATE">
+                    <div *ngFor="let list of list.DISTRICT">{{list.DISTRICTNAME}}</div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div> -->
+
+<!-- <table class="content">
+    <thead>
+        <tr>
+            <th>COUNTRY</th>
+            <th>STATE</th>
+            <th>DISTRICT</th>
+        </tr>
+        <tr>
+            <td>
+                <div *ngFor="let list of fetchID ">{{list.COUNTRY}}</div>
+
+            </td>
+            <td>
+                <div *ngFor="let item of fetchID">
+                    <div *ngFor="let list of item.STATE">{{list.STATENAME}}</div>
+                </div>
+
+            </td>
+
+            <td>
+                <div *ngFor="let item of fetchID">
+                    <div *ngFor="let list of item.STATE">
+                        <div *ngFor="let list of list.DISTRICT">{{list.DISTRICTNAME}}</div>
+                    </div>
+                </div>
+
+            </td>
+
+        </tr>
+    </thead>
+</table> -->
+
+<div class="box">
+    <div>
+        <div *ngFor="let list of fetchID ">{{list.COUNTRY}}
+            <div *ngFor="let list of list.STATE"><li>#{{list.STATENAME}}</li>
+                <div *ngFor="let list of list.DISTRICT"><ul>**{{list.DISTRICTNAME}}</ul>
+
+                 </div>
+
+            </div>
+
+        </div>
+
+    </div>
+</div>
+<router-outlet></router-outlet>
+

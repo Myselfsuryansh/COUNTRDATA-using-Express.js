@@ -1,0 +1,144 @@
+<!-- <p>district works!</p> -->
+
+<!-- <div class="BOX">
+    <label for="country">STATE: </label>
+    <select><option>Select  State</option>
+        <option *ngFor="let item of fetchID">{{item.STATE}}</option>
+    
+    </select>
+</div>
+<br><br>
+
+
+<div class="box">
+    <label>District:</label>
+    <input type="text" class="STATE" placeholder="Enter your District" required="">
+</div>
+
+<br><br>
+
+<button class="Submit">SUBMIT</button> -->
+
+<!-- <div class="BOX">
+
+    <form [formGroup]="districtname" (ngSubmit)="Clickme()">
+        <div class="box1">
+            <select formControlName="STATE"><option class="STATE">Select Your State</option>
+            <option *ngFor="let item of fetchID">{{item.STATE}}</option>
+            </select>
+        </div>
+        <br><br><br>
+
+        <div class="box">
+            <label>DISTRICT</label>
+            <input type="text" class="DISTRICT", placeholder="Please enter your district name" formControlName="DISTRICTNAME", required=" ">
+            <br><br>
+
+            <button class="SUBMIT">SUBMIT</button>
+        </div>
+    </form>
+</div> -->
+
+
+<!-- <div class="container pt-3">
+    <div class="row pt-3">
+        <div class="col-sm-6">
+            <div class="">
+            <form  [formGroup]="DISTRICTNAME">
+                <div class="form-group">
+                    <label for="country">Country</label>
+                    <select class="form-control" id="country" formControlName="countryName"   (change)="onSelect($event)" >
+                        <option> Select Country</option>
+                            <option *ngFor="let item of COUNTRY"  >
+                                <div *ngFor="let list of item.Country" >
+                                    {{ list.name }}
+                                </div></option>
+                    </select>
+                  </div>
+                 <div class="form-group">
+                    <label for="State">State</label>
+                    <select  class ="form-control"formControlName="stateName" id="State" (change)="getStateName()">
+                       <option > Select State</option>
+                        <option *ngFor="let item of a">
+                            {{item}}
+                        </option>
+                    </select>
+
+                 </div>
+                  
+               
+                  
+                <div class="form-group">
+                    <label  class="col-form-label"for="name">District</label>
+                    <input type="text" formControlName="districtName"
+                        class="form-control"
+                        placeholder="district"
+                    >
+                </div>
+                <button class="btn btn-primary pt-1 mt-4" (click)= 'getdistrict()'  type="submit">Submit </button>
+
+                
+
+        </form>
+       
+       
+    </div>
+
+</div> -->
+
+<br><br>
+
+<form [formGroup]="districtname" (ngSubmit)="Clickme()">
+    <div class="BOX">
+        <label for="COUNTRY" required>
+            <h3>COUNTRY:</h3>
+        </label>
+        <select formControlName="COUNTRY" (change)="onSelect($event)">
+            <option class="COUNTRY">Select Your Country</option>
+            <option *ngFor="let item of fetchID">{{item.COUNTRY}}
+            </option>
+        </select> <br>
+        <small *ngIf="districtname.get('COUNTRY').errors?.['required'] && districtname.get('COUNTRY').touched"></small>
+
+    </div>
+    <span class="txt1" *ngIf="districtname.controls.COUNTRY.invalid && districtname.controls.COUNTRY.touched">Please
+        Enter your
+        country</span>
+    <br><br>
+
+    <div class="BOX1">
+        <label for="STATENAME" required>
+            <h5>STATE</h5>
+        </label>
+        <select formControlName="STATENAME">(change)="getStateName()"
+            <option class="STATENAME">Select you State</option>
+            <!-- <option *ngFor="let item of fetchID">
+                <div *ngFor="let item of item.STATE">
+                    {{item.STATENAME}}
+                </div>
+            </option> -->
+            <option *ngFor="let item of dropdownstate">{{item}}</option>
+
+        </select>
+
+
+    </div>
+    <span class="txt1" *ngIf="districtname.controls.STATENAME.invalid && districtname.controls.STATENAME.touched">Please
+        Enter your state...</span>
+    <br><br>
+
+    <div class="BOX2">
+        <label>
+            <h3>DISTRICT</h3>
+        </label>
+        <input type="text" class="DISTRICT" formControlName="DISTRICTNAME" placeholder="Plese Enter your district name"
+            required=" ">
+        <br><br>
+        <span class="txt1"
+            *ngIf="districtname.controls.DISTRICTNAME.invalid && districtname.controls.DISTRICTNAME.touched">Please
+            Enter your
+            District</span>
+        <button class="SUBMIT">SUBMIT</button>
+    </div>
+</form>
+<router-outlet></router-outlet>
